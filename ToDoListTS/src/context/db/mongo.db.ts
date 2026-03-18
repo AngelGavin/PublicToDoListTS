@@ -3,13 +3,13 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const url = process.env.MONGO_URL || "mongodb+srv://admin:admin.12345678@cluster0.kgwlpef.mongodb.net/?appName=Cluster0";
+const url = process.env.MONGO_URL || "";
 const dbName = process.env.MONGO_DB_NAME || "toDoList";
 const collections: { [key: string]: Collection } = {};
 
 async function createMongoConnection() {
   try {
-    const client = await MongoClient.connect("mongodb+srv://admin:admin.12345678@cluster0.kgwlpef.mongodb.net/?appName=Cluster0");
+    const client = await MongoClient.connect("");
     const db = client.db(dbName);
     addCollections(db);
     console.log("Connected to MongoDB");
